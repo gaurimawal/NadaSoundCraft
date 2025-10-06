@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Nada Soundcraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="header-content">
+            <div class="logo">Nada Soundcraft</div>
+            
+            <nav class="main-nav">
+                <a href="category.html" class="nav-link">Tata Vadya</a>
+                <a href="category.html" class="nav-link">Sushira Vadya</a>
+                <a href="category.html" class="nav-link">Avanaddha Vadya</a>
+                <a href="category.html" class="nav-link">Accessories</a>
+                <a href="artist.html" class="nav-link">Artists</a> 
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <a href="profile.html" class="icon-link"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="icon-link cart-link"> 
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="login-page">
+        <div class="login-container">
+            <h1 class="login-title">Log in to your account</h1>
+            
+            <form class="login-form" action="index.html" method="get"> 
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-options">
+                    <label for="remember">
+                        <input type="checkbox" id="remember">
+                        Remember me
+                    </label>
+                    <a href="index.html" class="forgot-password">Forgot Password?</a> 
+                </div>
+                <button type="submit" class="login-btn">Log In</button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="profile.html">Sign up</a></p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Nada Soundcraft. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

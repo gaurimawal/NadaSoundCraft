@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Sitar Pro | Rikhi Ram - Nada Soundcraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="global-header">
+        <div class="header-content">
+            <div class="logo">Nada Soundcraft</div>
+            
+            <nav class="main-nav">
+                <a href="category.html" class="nav-link">Tata Vadya</a>
+                <a href="category.html" class="nav-link">Sushira Vadya</a>
+                <a href="category.html" class="nav-link">Avanaddha Vadya</a>
+                <a href="category.html" class="nav-link">Accessories</a>
+                <a href="artist.html" class="nav-link">Artists</a> 
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <a href="profile.html" class="icon-link"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="icon-link cart-link"> 
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-detail-page">
+        <div class="product-container">
+            <div class="product-media-gallery">
+                <div class="main-image-display">
+                    <img src="images/sitar_main.jpg" alt="Master Sitar Pro - Front View" class="main-product-image">
+                </div>
+                <div class="thumbnail-strip">
+                    <div class="thumbnail active">
+                        <img src="images/sitar_thumb1.jpg" alt="Sitar Thumbnail 1 - Close up of strings">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/sitar_thumb2.jpg" alt="Sitar Thumbnail 2 - Side view">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="images/sitar_thumb3.jpg" alt="Sitar Thumbnail 3 - Back view">
+                    </div>
+                    <div class="thumbnail video-thumb">
+                        <i class="fas fa-play"></i>
+                        <img src="images/sitar_video_thumb.jpg" alt="Sitar Video Thumbnail">
+                        </div>
+                    <div class="thumbnail audio-thumb">
+                        <i class="fas fa-volume-up"></i>
+                        <img src="images/sitar_audio_thumb.jpg" alt="Sitar Audio Thumbnail">
+                        </div>
+                </div>
+            </div>
+
+            <div class="product-info-panel">
+                <h1 class="product-title">Master Sitar Pro</h1>
+                <p class="product-brand-detail">by <a href="category.html" class="brand-link">Rikhi Ram</a></p>
+                <div class="product-rating-detail">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (45 Reviews)
+                </div>
+                <p class="product-price-detail">₹45,000</p>
+
+                <div class="availability-status">
+                    <i class="fas fa-check-circle"></i> In Stock
+                </div>
+
+                <div class="purchase-actions">
+                    <div class="quantity-selector">
+                        <button class="qty-btn" data-action="minus">-</button> 
+                        <input type="number" value="1" min="1" class="qty-input" readonly> 
+                        <button class="qty-btn" data-action="plus">+</button> 
+                    </div>
+                    <a href="cart.html" class="add-to-cart-btn">Add to Cart</a> 
+                </div>
+                
+                <div class="shipping-warranty">
+                    <p><i class="fas fa-shipping-fast"></i> Free Shipping</p>
+                    <p><i class="fas fa-shield-alt"></i> 1-Year Warranty</p>
+                </div>
+
+                <div class="product-tabs">
+                    <div class="tab-header">
+                        <h3 class="tab-heading">Description</h3>
+                    </div>
+                    <div class="tab-content active" id="description">
+                        <p>Experience the sublime sound of the Master Sitar Pro from Rikhi Ram, a name synonymous with quality and tradition. Handcrafted by master artisans, this sitar features a natural gourd resonator, exquisite Tun wood neck, and intricate inlay work. Perfect for both advanced students and professional performers, it delivers rich, resonant tones ideal for classical Indian music.</p>
+                        <p>Each instrument is meticulously tuned and inspected to ensure unparalleled sound quality and playability. Comes with a complimentary soft case and a set of extra strings.</p>
+                    </div>
+
+                    <div class="tab-header">
+                        <h3 class="tab-heading">Specifications</h3>
+                    </div>
+                    <div class="tab-content" id="specifications">
+                        <ul>
+                            <li>**Materials:** Seasoned Tun Wood, Natural Gourd Resonator</li>
+                            <li>**Strings:** 7 Main, 13 Sympathetic</li>
+                            <li>**Dimensions:** 13 inches (gourd diameter), 48 inches (total length)</li>
+                            <li>**Tuning:** Standard C#/D</li>
+                            <li>**Finish:** Hand-polished with traditional lac finish</li>
+                            <li>**Accessories:** Includes a soft padded cover and extra string set.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-header">
+                        <h3 class="tab-heading">Reviews</h3>
+                    </div>
+                    <div class="tab-content" id="reviews">
+                        <p>No reviews yet. Be the first to review "Master Sitar Pro"!</p>
+                        <a href="#" class="write-review-btn">Write a Review</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="related-products">
+            <h2 class="section-title">Related Products</h2>
+            <div class="product-grid">
+                <a href="product.html" class="product-card">
+                    <img src="images/travel_sitar.jpg" alt="Travel Sitar" class="product-image-thumb">
+                    <h4 class="product-name">Travel Sitar</h4>
+                    <p class="product-brand">Small Wonders</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (22)
+                    </div>
+                    <p class="product-price">₹28,000</p>
+                </a>
+                <a href="product.html" class="product-card">
+                    <img src="images/sitar_gig_bag.jpg" alt="Sitar Gig Bag" class="product-image-thumb">
+                    <h4 class="product-name">Sitar Gig Bag</h4>
+                    <p class="product-brand">SoundSecure</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (78)
+                    </div>
+                    <p class="product-price">₹2,500</p>
+                </a>
+                <a href="product.html" class="product-card">
+                    <img src="images/tabla_set_beginner.jpg" alt="Tabla Set for Beginners" class="product-image-thumb">
+                    <h4 class="product-name">Tabla Set (Beginner)</h4>
+                    <p class="product-brand">Raju Percussion</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (60)
+                    </div>
+                    <p class="product-price">₹12,000</p>
+                </a>
+                <a href="product.html" class="product-card">
+                    <img src="images/sitar_tuning_pegs.jpg" alt="Sitar Tuning Pegs" class="product-image-thumb">
+                    <h4 class="product-name">Sitar Tuning Pegs</h4>
+                    <p class="product-brand">Generic</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (10)
+                    </div>
+                    <p class="product-price">₹800</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Nada Soundcraft. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
