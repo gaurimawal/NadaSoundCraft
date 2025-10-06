@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Nada Soundcraft</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="global-header">
+        </header>
+
+    <main class="cart-page-layout">
+        <h1 class="page-title">Your Shopping Cart</h1>
+
+        <div class="cart-flex-container">
+            
+            <section class="cart-items">
+                
+                <div class="cart-item">
+                    <div class="item-image-box">
+                        <img src="https://via.placeholder.com/100x100/7A4930/FFFFFF?text=Sitar" alt="Master Sitar Pro" class="item-image">
+                    </div>
+                    <div class="item-details">
+                        <h2 class="item-name">Master Sitar Pro</h2>
+                        <p class="item-brand">Rikhi Ram</p>
+                        <p class="item-availability"><i class="fas fa-check-circle"></i> In Stock</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn-cart" data-action="minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input-cart">
+                        <button class="qty-btn-cart" data-action="plus">+</button>
+                    </div>
+                    <div class="item-price">₹45,000</div>
+                    <button class="item-remove-btn"><i class="fas fa-trash-alt"></i></button>
+                </div>
+                
+                <div class="cart-item">
+                    <div class="item-image-box">
+                        <img src="https://via.placeholder.com/100x100/444444/FFFFFF?text=Gig+Bag" alt="Sitar Gig Bag" class="item-image">
+                    </div>
+                    <div class="item-details">
+                        <h2 class="item-name">Sitar Gig Bag (Padded)</h2>
+                        <p class="item-brand">SoundSecure</p>
+                        <p class="item-availability"><i class="fas fa-check-circle"></i> In Stock</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn-cart" data-action="minus">-</button>
+                        <input type="number" value="1" min="1" class="qty-input-cart">
+                        <button class="qty-btn-cart" data-action="plus">+</button>
+                    </div>
+                    <div class="item-price">₹2,500</div>
+                    <button class="item-remove-btn"><i class="fas fa-trash-alt"></i></button>
+                </div>
+
+                <div class="continue-shopping">
+                    <a href="index.html"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+                </div>
+            </section>
+
+            <aside class="order-summary-box">
+                <h2 class="summary-title">Order Summary</h2>
+                <div class="summary-line">
+                    <span>Subtotal (2 items)</span>
+                    <span>₹47,500</span>
+                </div>
+                <div class="summary-line">
+                    <span>Shipping Estimate</span>
+                    <span>₹800</span>
+                </div>
+                <div class="summary-line">
+                    <span>Tax (18%)</span>
+                    <span>₹8,550</span>
+                </div>
+                
+                <div class="summary-total">
+                    <span>Order Total</span>
+                    <span>₹56,850</span>
+                </div>
+                
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        </footer>
+
+    <script>
+        // Basic JavaScript to ensure quantity controls work on this page too
+        document.querySelectorAll('.qty-btn-cart').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const itemQuantityDiv = e.target.closest('.item-quantity');
+                const input = itemQuantityDiv.querySelector('.qty-input-cart');
+                let currentValue = parseInt(input.value);
+                
+                if (e.target.dataset.action === 'plus') {
+                    input.value = currentValue + 1;
+                } else if (e.target.dataset.action === 'minus' && currentValue > 1) {
+                    input.value = currentValue - 1;
+                }
+                // In a real application, an AJAX call would update the subtotal here.
+            });
+        });
+    </script>
+</body>
+</html>
