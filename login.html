@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Nada Soundcraft</title>
-    <link rel="stylesheet" href="global.css"> 
-    <link rel="stylesheet" href="profile_layout.css">
+    <title>Login / Sign Up - Nada Soundcraft</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="utility.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
+    <!-- HCI: Consistency (Standard Header) -->
     <header class="global-header">
         <div class="header-content">
-            <div class="logo">Nada Soundcraft</div>
-            
+            <div class="logo"><a href="index.html">Nada Soundcraft</a></div>
             <nav class="main-nav">
                 <a href="category.html" class="nav-link">Tata Vadya</a>
                 <a href="category.html" class="nav-link">Sushira Vadya</a>
                 <a href="category.html" class="nav-link">Avanaddha Vadya</a>
+                 <a href="category.html" class="nav-link">Ghana Vadya</a>
                 <a href="category.html" class="nav-link">Accessories</a>
                 <a href="artist.html" class="nav-link">Artists</a> 
             </nav>
-
             <div class="header-actions">
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search...">
                 </div>
-                <a href="profile.html" class="icon-link"><i class="fas fa-user"></i></a>
-                <a href="cart.html" class="icon-link cart-link"> 
+                <a href="profile.html" class="icon-link" aria-label="User Profile"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="icon-link cart-link" aria-label="Shopping Cart"> 
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                 </a>
@@ -38,6 +38,7 @@
 
     <main class="login-page">
         <div class="login-container">
+            <!-- HCI: Closure (Clear title for the current step) -->
             <h1 class="login-title">Log In to Your Account</h1>
             
             <form class="login-form" action="index.html" method="get"> 
@@ -54,42 +55,18 @@
                         <input type="checkbox" id="remember">
                         Remember me
                     </label>
-                    <a href="index.html" class="forgot-password">Forgot Password?</a> 
+                    <a href="#" class="forgot-password">Forgot Password?</a> 
                 </div>
-                <button type="submit" class="login-btn">LOG IN SECURELY</button>
+                <!-- HCI: Consistency (Standard CTA style) -->
+                <button type="submit" class="login-btn">Log In Securely</button>
             </form>
-
-            <div class="or-divider">OR CONTINUE WITH</div>
-
-            <div class="social-login-options">
-                <a href="index.html" class="social-login-btn google-btn">
-                    <i class="fab fa-google"></i> Continue with Google
-                </a>
-                <a href="index.html" class="social-login-btn facebook-btn">
-                    <i class="fab fa-facebook-f"></i> Continue with Facebook
-                </a>
-            </div>
-
-            <p class="signup-link">New customer? <a href="profile.html">Create an account</a></p>
+            <p class="signup-link">New customer? <a href="#" style="font-weight: bold;">Create an account</a></p>
         </div>
     </main>
 
+    <!-- HCI: Consistency (Standard Footer) -->
     <footer class="site-footer">
-        <div class="footer-links-grid">
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <a href="index.html">Home</a>
-                <a href="category.html">Shop All</a>
-                <a href="artist.html">Featured Artists</a>
-            </div>
-            <div class="footer-column">
-                <h4>Support</h4>
-                <a href="#">Shipping & Returns</a>
-                <a href="#">FAQ</a>
-                <a href="#">Contact Us</a>
-            </div>
-        </div>
-        <p class="copyright-text">&copy; 2025 Nada Soundcraft. All Rights Reserved.</p>
+        <p>&copy; 2025 Nada Soundcraft. All Rights Reserved. | <a href="#" style="color:var(--color-text-accent);">Privacy Policy</a></p>
     </footer>
 
 </body>

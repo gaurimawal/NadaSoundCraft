@@ -1,0 +1,619 @@
+/* Global styles are defined in global.css */
+
+/* --- HERO SECTION STYLES (Two-Column Layout) --- */
+.hero-section {
+    background-color: var(--color-accent-bg);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.text-block {
+    width: 48%; 
+    padding-right: 20px;
+}
+
+.hero-headline {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--color-text-light);
+}
+
+.hero-subheadline {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: var(--color-text-accent);
+}
+
+.instrument-visual {
+    width: 48%; 
+    min-height: 450px;
+    object-fit: contain; 
+    display: block;
+    border-radius: 8px;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5)); 
+}
+
+
+/* --- FEATURED CATEGORIES STRIP --- */
+.category-strip {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--color-primary-bg);
+}
+
+.category-grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 25px;
+}
+
+.category-card {
+    background-color: var(--color-accent-bg);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #444;
+    overflow: hidden;
+    text-align: left; /* Text alignment improved for readability */
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-color: var(--color-text-accent);
+}
+
+.category-card h3 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: var(--color-text-accent);
+    margin-bottom: 5px;
+}
+
+.category-card p {
+    font-size: 14px;
+    color: #CCC;
+    margin-bottom: 15px;
+}
+
+.category-card .product-image-thumb {
+    width: 100%;
+    height: 120px; 
+    object-fit: cover; /* Use cover for category images */
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+    .text-block, .instrument-visual {
+        width: 100%;
+        padding-right: 0;
+        text-align: center;
+    }
+    .hero-headline {
+        font-size: 40px;
+    }
+    .hero-subheadline {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    .instrument-visual {
+        min-height: 300px;
+        margin-top: 30px;
+    }
+    .category-strip {
+        padding: 40px 15px;
+    }
+}
+
+/* --- NEW: BACKGROUND IMAGE FOR HOMEPAGE BODY --- */
+.body-home-bg {
+    /* Path to your chosen home background image */
+    background-image: url('images/back.jpeg'); 
+    background-size: cover;
+    background-position: center top; 
+    background-attachment: fixed; /* Ensures the background stays put while scrolling */
+    background-repeat: no-repeat;
+}
+
+/* Ensure ALL main containers remain solid to keep text readable */
+.global-header, 
+.category-strip,
+.site-footer {
+    /* Critical: Makes sure the color is solid and the background image doesn't show through */
+    background-color: var(--color-primary-bg); 
+    position: relative; /* Necessary if background-attachment: fixed is used */
+    z-index: 1; /* Puts content layers clearly above the body background */
+}
+/*
+ * home_layout.css
+ *
+ * This CSS file contains styles specific to the index.html (homepage) layout.
+ * It is designed to be used in conjunction with global.css.
+ */
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative; /* Crucial for positioning the overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; /* Make the hero section cover a good portion of the viewport */
+    padding: 80px 40px; /* Internal padding */
+    overflow: hidden; /* Ensures background image is contained */
+    
+    /* --- BACKGROUND IMAGE STYLES --- */
+    background-image: url('images/hero-background.jpg'); /* <-- Path to your background image */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents repetition */
+    z-index: 1; /* Establishes stacking context for the pseudo-element overlay */
+}
+
+/* Pseudo-element for a dark overlay to improve text readability over the image */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55); /* 55% black overlay */
+    z-index: -1; /* Place it behind the .hero-content but above the image */
+}
+
+.hero-content {
+    position: relative; /* Ensure content is above the overlay */
+    z-index: 2; /* Content sits above the overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--max-width); /* Uses global max-width for content */
+    width: 100%;
+    gap: 60px; /* Space between text and image blocks */
+}
+
+.text-block {
+    flex: 1; /* Allows text block to take up available space */
+    text-align: left;
+    color: var(--color-text-light); /* Ensure text is light and readable */
+}
+
+.hero-headline {
+    font-family: var(--font-serif);
+    font-size: 72px; /* Large, impactful headline */
+    color: var(--color-text-accent); /* Accent color for the headline */
+    margin-bottom: 15px;
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+
+.hero-subheadline {
+    font-size: 24px;
+    color: #E0E0E0; /* Slightly off-white for subtitle */
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-cta);
+    color: var(--color-primary-bg);
+    padding: 18px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #FF9B42; /* Slightly brighter on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(var(--color-cta-rgb, 232, 124, 62), 0.4);
+}
+
+.instrument-visual-container { /* New container for better control */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px; /* Ensure it has a minimum size */
+}
+
+.instrument-visual {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below image */
+    border-radius: 12px; /* Soften edges of the image */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Adds depth to the instrument */
+}
+
+/* --- Category Strip --- */
+.category-strip {
+    background-color: var(--color-primary-bg); /* Ensure solid background */
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.category-strip .section-title {
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+}
+
+.category-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Product Card Styling (re-using product-card from global.css or adding here if specific) */
+.product-card {
+    background-color: var(--color-accent-bg);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-text-light);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(var(--color-cta-rgb, 232, 124, 62), 0.2);
+}
+
+.product-image-thumb {
+    max-width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: contain; /* Ensures entire product is visible */
+    margin-bottom: 15px;
+}
+
+.product-name {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: var(--color-text-accent);
+    margin-bottom: 5px;
+}
+
+.product-brand {
+    font-size: 14px;
+    color: #AAA;
+    margin-bottom: 10px;
+}
+
+.product-rating {
+    font-size: 14px;
+    color: var(--color-cta);
+    margin-bottom: 10px;
+}
+.product-rating .fas {
+    font-size: 13px; /* Smaller stars */
+    margin-right: 2px;
+}
+
+.product-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--color-text-light);
+    margin-top: auto; /* Push price to bottom */
+}
+
+
+/* --- Responsive Adjustments for Homepage --- */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column; /* Stack text and image vertically */
+        text-align: center;
+        gap: 40px;
+    }
+    .text-block {
+        text-align: center;
+    }
+    .hero-headline {
+        font-size: 56px;
+    }
+    .hero-subheadline {
+        font-size: 20px;
+    }
+    .instrument-visual-container {
+        min-width: unset; /* Remove min-width on small screens */
+        max-width: 80%; /* Limit width of image container */
+    }
+    .category-strip {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        min-height: 60vh; /* Adjust height for smaller screens */
+        padding: 60px 20px;
+    }
+    .hero-headline {
+        font-size: 40px;
+    }
+    .hero-subheadline {
+        font-size: 18px;
+    }
+    .cta-button {
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+    .product-image-thumb {
+        height: 150px;
+    }
+}
+/*
+ * home_layout.css
+ *
+ * This CSS file contains styles specific to the index.html (homepage) layout.
+ * It is designed to be used in conjunction with global.css.
+ */
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh; 
+    padding: 80px 40px; 
+    overflow: hidden; 
+    
+    background-image: url('images/back.jpeg'); /* Path to your hero background image */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    z-index: 1; 
+}
+
+/* Pseudo-element for a dark overlay for Hero Section text readability */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55); /* 55% black overlay */
+    z-index: -1; 
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 2; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--max-width); 
+    width: 100%;
+    gap: 60px; 
+}
+
+.text-block {
+    flex: 1; 
+    text-align: left;
+    color: var(--color-text-light); 
+}
+
+.hero-headline {
+    font-family: var(--font-serif);
+    font-size: 72px; 
+    color: var(--color-text-accent); 
+    margin-bottom: 15px;
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+
+.hero-subheadline {
+    font-size: 24px;
+    color: #E0E0E0; 
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-cta);
+    color: var(--color-primary-bg);
+    padding: 18px 35px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #FF9B42; 
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(var(--color-cta-rgb, 232, 124, 62), 0.4);
+}
+
+.instrument-visual-container { 
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px; 
+}
+
+.instrument-visual {
+    max-width: 100%;
+    height: auto;
+    display: block; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); 
+}
+
+/* --- Category Strip --- */
+.category-strip {
+    position: relative; /* Essential for its own background image and overlay */
+    padding: 60px 40px;
+    text-align: center;
+    overflow: hidden; /* Ensure background image is contained */
+    z-index: 1; /* Establishes stacking context */
+
+    /* --- NEW: BACKGROUND IMAGE STYLES FOR CATEGORY STRIP --- */
+    background-image: url(''); /* <-- Path to your category strip background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* NEW: Pseudo-element for a dark overlay for Category Strip text readability */
+.category-strip::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 40% black overlay, slightly lighter than hero */
+    z-index: -1; /* Place it behind the content but above the image */
+}
+
+
+.category-strip .section-title {
+    color: var(--color-text-light); /* Ensure title is readable on overlay */
+    margin-bottom: 40px;
+    position: relative; /* Ensure title is above overlay */
+    z-index: 2;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Ensure grid is above overlay */
+    z-index: 2;
+}
+
+/* Styling for individual category cards within the grid */
+.category-card {
+    background-color: rgba(var(--color-accent-bg-rgb), 0.9); /* Slightly transparent accent background */
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-text-light);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(var(--color-cta-rgb, 232, 124, 62), 0.2);
+}
+
+.category-card h3 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: var(--color-text-accent);
+    margin-bottom: 15px;
+}
+
+.category-card img {
+    max-width: 100%;
+    height: 150px; /* Fixed height for consistency */
+    object-fit: contain; /* Ensures entire product is visible */
+    margin-bottom: 15px;
+}
+
+.category-card p {
+    font-size: 15px;
+    color: #CCC;
+    margin-top: auto; /* Push description to bottom */
+}
+
+
+/* --- Responsive Adjustments for Homepage --- */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column; 
+        text-align: center;
+        gap: 40px;
+    }
+    .text-block {
+        text-align: center;
+    }
+    .hero-headline {
+        font-size: 56px;
+    }
+    .hero-subheadline {
+        font-size: 20px;
+    }
+    .instrument-visual-container {
+        min-width: unset; 
+        max-width: 80%; 
+    }
+    .category-strip {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-section {
+        min-height: 60vh; 
+        padding: 60px 20px;
+    }
+    .hero-headline {
+        font-size: 40px;
+    }
+    .hero-subheadline {
+        font-size: 18px;
+    }
+    .cta-button {
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+    .category-strip .section-title {
+        font-size: 28px;
+    }
+    .category-card h3 {
+        font-size: 20px;
+    }
+    .category-card img {
+        height: 120px;
+    }
+    .category-card p {
+        font-size: 14px;
+    }
+}

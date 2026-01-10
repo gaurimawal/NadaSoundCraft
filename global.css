@@ -1,0 +1,271 @@
+/* --- 1. GLOBAL RESET AND FONT IMPORTS --- */
+/* Import Google Fonts for better aesthetics and readability (HCI: Consistency, Legibility) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Add smooth transitions for all interactive elements (HCI: Informative Feedback) */
+    transition: all 0.3s ease-out;
+}
+
+:root {
+    /* Color Palette - Earthy, Rich tones for Indian instruments */
+    --color-primary-bg: #281A1A; /* Dark Red-Brown */
+    --color-accent-bg: #5C3524;  /* Rich Earthy Brown */
+    --color-cta: #E87C3E;        /* Warm Orange/Ochre (Primary Action) */
+    --color-secondary-cta: #7A4930; /* Secondary Action/Buy Now */
+    --color-text-light: #F2F2F2;
+    --color-text-accent: #FFB76A; /* Gold Accent */
+    --color-success: #4CAF50;    /* Green */
+    --color-error: #FF5252;      /* Red */
+    
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --max-width: 1280px;
+    --header-height: 80px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-primary-bg);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-light);
+}
+
+/* --- 2. HEADER STYLES (HCI: Consistency, Shortcuts) --- */
+.global-header {
+    background-color: var(--color-primary-bg);
+    height: var(--header-height);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+}
+
+.header-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px; 
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 28px; /* Slightly larger logo */
+    color: var(--color-text-accent);
+    font-weight: 700;
+}
+
+.main-nav {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-link {
+    font-size: 16px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-cta);
+    transition: width 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+    width: 100%; /* Informative Feedback: Active hover effect */
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #3A2C2C; 
+    border-radius: 20px;
+    padding: 8px 15px;
+    transition: width 0.3s;
+}
+.search-bar:focus-within {
+    background-color: #4A3C3C;
+    box-shadow: 0 0 0 2px var(--color-cta);
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    color: var(--color-text-light);
+    margin-left: 8px;
+    outline: none;
+    width: 150px;
+}
+
+.icon-link {
+    font-size: 20px;
+    padding: 5px;
+    position: relative;
+}
+.icon-link:hover {
+    color: var(--color-text-accent);
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--color-cta);
+    color: var(--color-primary-bg);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* --- 3. BUTTONS (HCI: Consistency, Predictability) --- */
+.cta-button, .add-to-cart-btn, .buy-now-btn, .login-btn, .checkout-btn, .apply-filters-btn {
+    display: block;
+    text-align: center;
+    padding: 15px 35px;
+    border-radius: 8px; /* Consistent rounded corners */
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.1s, box-shadow 0.3s;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+/* Primary CTA */
+.cta-button, .add-to-cart-btn, .checkout-btn, .apply-filters-btn, .login-btn {
+    background-color: var(--color-cta);
+    color: var(--color-primary-bg);
+}
+
+.cta-button:hover, .add-to-cart-btn:hover, .checkout-btn:hover, .apply-filters-btn:hover, .login-btn:hover {
+    background-color: #FF9B42;
+    box-shadow: 0 4px 10px rgba(232, 124, 62, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Secondary CTA (e.g., Buy Now) */
+.buy-now-btn {
+    background-color: var(--color-secondary-cta); 
+    color: var(--color-text-light);
+    border: 2px solid var(--color-secondary-cta);
+}
+.buy-now-btn:hover {
+    background-color: #5C3524;
+    border-color: var(--color-text-accent);
+    box-shadow: 0 4px 10px rgba(92, 53, 36, 0.4);
+    transform: translateY(-1px);
+}
+
+
+/* --- 4. FOOTER --- */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1A1212; 
+    font-size: 14px;
+    color: #999;
+}
+
+/* --- 5. UTILITY & TYPOGRAPHY --- */
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: var(--color-text-accent);
+    text-align: center;
+}
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    color: var(--color-text-accent);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .main-nav {
+        gap: 15px;
+    }
+    .search-bar input {
+        width: 100px;
+    }
+    .hero-headline {
+        font-size: 48px;
+    }
+    .section-title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 15px;
+    }
+    .main-nav {
+        display: none; /* Hide main nav on mobile, focus on search/icons */
+    }
+    .header-actions {
+        gap: 15px;
+    }
+    .logo {
+        font-size: 22px;
+    }
+    .page-title {
+        font-size: 36px;
+    }
+}
+
+/* --- NEW: BACKGROUND IMAGE FOR HOMEPAGE BODY --- */
+.body-home-bg {
+    /* Path to your chosen home background image */
+    background-image: url('images/back.jpeg'); 
+    background-size: cover;
+    background-position: center top; 
+    background-attachment: fixed; /* Ensures the background stays put while scrolling */
+    background-repeat: no-repeat;
+}
+
+/* Ensure ALL main containers remain solid to keep text readable */
+.global-header, 
+.category-strip,
+.site-footer {
+    /* Critical: Makes sure the color is solid and the background image doesn't show through */
+    background-color: var(--color-primary-bg); 
+    position: relative; /* Necessary if background-attachment: fixed is used */
+    z-index: 1; /* Puts content layers clearly above the body background */
+}

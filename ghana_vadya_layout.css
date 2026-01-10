@@ -1,0 +1,216 @@
+/*
+ * ghana_vadya_layout.css
+ *
+ * This CSS file contains styles specific to the ghana_vadya.html page layout.
+ * It is designed to be used in conjunction with global.css.
+ */
+
+/* --- Main Page Layout --- */
+.ghana-vadya-page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px 0; /* Consistent internal padding */
+}
+
+/* --- Category Hero Banner (with Background Image) --- */
+.category-hero-banner {
+    min-height: 350px; /* Decent height for the banner */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px;
+    margin-bottom: 40px; /* Space below the banner */
+    border-radius: 10px; /* Slightly rounded corners for the banner */
+    overflow: hidden; /* Ensure content is clipped */
+
+    /* --- BACKGROUND IMAGE PLACEHOLDER --- */
+    background-image: url('images/ghana_vadya_background.jpg'); /* <-- YOUR GHANA VADYA BACKGROUND IMAGE */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1; /* For the overlay */
+}
+
+/* Overlay for readability */
+.category-hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65); /* Dark overlay for text readability */
+    z-index: -1;
+}
+
+.category-hero-banner .hero-content {
+    text-align: center;
+    color: var(--color-text-light);
+    position: relative;
+    z-index: 2; /* Ensure text is above overlay */
+    max-width: 800px;
+}
+
+.category-main-title {
+    font-family: var(--font-serif);
+    font-size: 52px; /* Prominent title */
+    color: var(--color-text-accent); /* Accent color */
+    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+}
+
+.category-description {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #E0E0E0;
+}
+
+/* --- Main Content Wrapper (Sidebar + Product Listing) --- */
+.main-content-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr; /* Sidebar fixed width, product list takes rest */
+    gap: 40px;
+    padding: 0 20px; /* Horizontal padding for the wrapper */
+}
+
+/* --- Filter Sidebar Styles (Re-used from category_layout.css) --- */
+.filter-sidebar {
+    background-color: var(--color-primary-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+}
+
+.filter-sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--color-text-accent);
+}
+
+.filter-group {
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.filter-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--color-text-light);
+}
+
+.filter-option {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #CCC;
+}
+.filter-option input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--color-cta); /* Style checkboxes with CTA color */
+}
+
+.apply-filters-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: var(--color-cta);
+    color: var(--color-primary-bg);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.apply-filters-btn:hover {
+    background-color: #FF9B42;
+}
+
+/* --- Product Listing & Sorting (Re-used from category_layout.css) --- */
+.sort-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    margin-bottom: 20px;
+    color: #CCC;
+}
+
+.sort-bar select {
+    padding: 8px;
+    background-color: var(--color-primary-bg);
+    color: var(--color-text-light);
+    border: 1px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Product grid uses .product-grid from global.css */
+
+
+/* --- Pagination Styles (Re-used from category_layout.css) --- */
+.pagination {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pagination a {
+    color: var(--color-text-light);
+    padding: 8px 16px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: var(--color-cta);
+    color: var(--color-primary-bg);
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #444;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .main-content-wrapper {
+        grid-template-columns: 1fr; /* Stack sidebar and products vertically */
+        padding: 0 15px;
+    }
+    .filter-sidebar {
+        margin-bottom: 40px; /* Space between sidebar and products */
+    }
+    .category-main-title {
+        font-size: 44px;
+    }
+    .category-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .category-hero-banner {
+        min-height: 280px;
+        padding: 30px 20px;
+    }
+    .category-main-title {
+        font-size: 36px;
+    }
+    .category-description {
+        font-size: 15px;
+    }
+    .sort-bar {
+        flex-direction: column; /* Stack sort bar items */
+        gap: 15px;
+        align-items: flex-start;
+    }
+}

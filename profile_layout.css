@@ -1,0 +1,228 @@
+/* --- Link in profile.html: <link rel="stylesheet" href="profile_layout.css"> --- */
+
+/* LOGIN PAGE CONTAINER & GENERAL LAYOUT */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: calc(100vh - var(--header-height) - 100px); 
+    padding: 40px 20px; 
+    
+    /* --- BACKGROUND IMAGE STYLES --- */
+    background-image: url('images/back.jpeg'); /* <-- Path to your image */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't repeat the image */
+    
+    /* Optional: Add a subtle overlay for better text readability */
+    position: relative; /* Needed for the pseudo-element overlay */
+    z-index: 1; /* Ensure content is above the pseudo-element */
+}
+
+/* Pseudo-element for a dark overlay to improve readability of content over image */
+.login-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% black overlay */
+    z-index: -1; /* Place it behind the .login-container but above the image */
+}
+
+.login-container {
+    background-color: rgba(92, 53, 36, 0.95); /* Slightly transparent background for the form itself */
+    padding: 50px 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Darker shadow for more contrast against light parts of image */
+    width: 100%;
+    max-width: 450px; 
+    text-align: center; 
+    animation: fadeIn 0.5s ease-out; 
+    z-index: 10; /* Ensure the form is above the overlay */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Rest of your existing .login-container styles and other form element styles */
+.login-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* FORM GROUP STYLING */
+.login-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-text-light);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 14px 15px;
+    background-color: #3A2C2C; /* Darker input background for better contrast */
+    border: 1px solid #5A443A;
+    border-radius: 8px;
+    color: var(--color-text-light);
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--color-cta);
+    box-shadow: 0 0 0 3px rgba(var(--color-cta-rgb, 232, 124, 62), 0.3);
+}
+
+/* FORM OPTIONS (REMEMBER ME / FORGOT PASSWORD) */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: var(--color-text-light);
+}
+
+.form-options label input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--color-cta);
+}
+
+.forgot-password {
+    color: var(--color-text-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* MAIN LOGIN BUTTON */
+.login-btn {
+    width: 100%;
+    background-color: var(--color-cta);
+    color: var(--color-primary-bg);
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    letter-spacing: 0.5px;
+}
+
+.login-btn:hover {
+    background-color: #FF9B42;
+    box-shadow: 0 5px 15px rgba(232, 124, 62, 0.4);
+}
+
+/* OR CONTINUE WITH DIVIDER */
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    color: #A09080;
+    font-size: 14px;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #5A443A;
+}
+
+.or-divider:not(:empty)::before {
+    margin-right: .5em;
+}
+
+.or-divider:not(:empty)::after {
+    margin-left: .5em;
+}
+
+/* SOCIAL LOGIN BUTTONS */
+.social-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.social-login-btn i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.google-btn {
+    background-color: #4285F4;
+    color: #FFFFFF;
+}
+
+.google-btn:hover {
+    background-color: #357ae8;
+    transform: translateY(-2px);
+}
+
+.facebook-btn {
+    background-color: #1877F2;
+    color: #FFFFFF;
+}
+
+.facebook-btn:hover {
+    background-color: #166fe5;
+    transform: translateY(-2px);
+}
+
+/* SIGNUP LINK */
+.signup-link {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 15px;
+    color: var(--color-text-light);
+}
+
+.signup-link a {
+    color: var(--color-text-accent);
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Basic Responsiveness */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 40px 25px;
+        margin: 0 15px;
+    }
+    .login-title {
+        font-size: 28px;
+    }
+}

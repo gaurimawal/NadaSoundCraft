@@ -1,0 +1,278 @@
+/*
+ * artist_layout.css
+ *
+ * This CSS file contains styles specific to the artist.html page layout.
+ * It is designed to be used in conjunction with global.css, which provides
+ * common variables, header, footer, and general component styles.
+ */
+
+/* --- Main Page Container --- */
+.artist-page {
+    max-width: var(--max-width); /* Uses global max-width */
+    margin: 0 auto; /* Centers the main content */
+    /* Padding for the main page content is handled by individual sections */
+}
+
+/* --- Featured Artist Spotlight (Hero Section) --- */
+.artist-hero {
+    min-height: 600px; /* Ensures the section is tall enough to showcase the background */
+    display: flex;
+    align-items: center; /* Vertically centers content within the hero */
+    justify-content: center;
+    position: relative;
+    padding: 60px 40px; /* Internal padding for content */
+    
+    /* Background Image Styling */
+    background-image: url('images/artist-background.jpg'); /* Path to your background image */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    z-index: 1; /* Establishes stacking context for the overlay */
+    margin-bottom: 60px; /* Space below this section */
+}
+
+/* Background Overlay for Readability */
+.artist-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* 60% black overlay for contrast */
+    z-index: -1; /* Places the overlay behind the hero content but above the image */
+}
+
+/* Content within the Artist Hero Section */
+.artist-hero-content {
+    display: flex;
+    align-items: flex-start; /* Aligns items to the start of the cross axis (top) */
+    gap: 50px; /* Space between text and image */
+    max-width: 1000px; /* Limits the max width of the content for better readability */
+    width: 100%;
+    position: relative; /* Ensures content is above the overlay */
+    z-index: 2; /* Ensures content appears on top of the overlay */
+}
+
+/* Artist Biography Text Block */
+.artist-bio-text {
+    flex: 2; /* Allows this block to take up more space (2 parts out of 3 total) */
+    text-align: left;
+    color: var(--color-text-light); /* Light text for contrast */
+    line-height: 1.7; /* Improved readability for body text */
+    padding-right: 20px; /* Small padding to prevent text from touching the image */
+}
+
+.artist-name {
+    font-family: var(--font-serif);
+    font-size: 56px; /* Prominent size for the artist's name */
+    color: var(--color-text-accent); /* Accent color for the name */
+    margin-bottom: 10px;
+    letter-spacing: 1.5px; /* Adds a touch of elegance */
+}
+
+.artist-tagline {
+    font-size: 20px;
+    color: var(--color-cta); /* CTA color for the tagline for emphasis */
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.artist-bio-text p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.connect-links {
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.connect-links a {
+    color: var(--color-text-accent);
+    font-size: 24px; /* Larger social media icons */
+    margin-left: 15px; /* Space between the text and first icon, and between icons */
+    transition: color 0.3s, transform 0.2s; /* Smooth hover effects */
+}
+
+.connect-links a:hover {
+    color: var(--color-cta); /* Hover color change */
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+/* Artist Profile Image Circle */
+.artist-image-circle {
+    flex: 1; /* Allows this block to take up less space (1 part out of 3 total) */
+    width: 300px; /* Fixed width for the circular container */
+    height: 300px; /* Fixed height for the circular container */
+    border-radius: 50%; /* Makes the container a perfect circle */
+    overflow: hidden; /* Clips content (image) to the circular shape */
+    background-color: var(--color-accent-bg); /* Fallback background if image fails to load */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 0 10px rgba(var(--color-text-accent-rgb, 255, 183, 106), 0.3), 0 0 20px rgba(0, 0, 0, 0.5); /* Accent border glow and subtle shadow */
+}
+
+.artist-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire circular area */
+    border-radius: 50%; /* Redundant here due to parent overflow: hidden, but good practice */
+}
+
+/* --- Recommended Instruments Section --- */
+.recommended-instruments {
+    padding: 0 40px 60px; /* Padding for the section content (left, right, bottom) */
+    text-align: center; /* Centers the section title and product grid */
+}
+.recommended-instruments .section-title {
+    color: var(--color-text-light);
+    margin-bottom: 40px; /* Space below the title */
+}
+
+/* --- NEW SECTIONS: Legends of Sitar & Renowned Makers --- */
+.artist-grid-section {
+    padding: 0 40px 60px; /* Consistent padding for these grid sections */
+    text-align: center;
+}
+
+.artist-grid-section .section-title {
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+}
+
+.artist-grid {
+    display: grid;
+    /* Responsive grid: auto-fills columns, min width 280px, max 1 fraction unit */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px; /* Space between grid items */
+    max-width: 1200px; /* Limits the max width of the grid for better organization */
+    margin: 0 auto; /* Centers the grid within its section */
+}
+
+.individual-artist-card {
+    background-color: var(--color-accent-bg); /* Accent background for cards */
+    border-radius: 12px; /* Slightly more rounded corners */
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s, transform 0.3s; /* Smooth hover effects */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    display: flex; /* Flexbox for vertical alignment of content */
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space evenly */
+}
+
+.individual-artist-card:hover {
+    box-shadow: 0 8px 25px rgba(255, 183, 106, 0.15); /* Stronger shadow/glow on hover */
+    transform: translateY(-5px); /* Card lifts slightly on hover */
+}
+
+.artist-thumb-image {
+    width: 150px; /* Fixed size for circular thumbnail images */
+    height: 150px;
+    border-radius: 50%; /* Makes the image circular */
+    overflow: hidden; /* Clips content to the circle */
+    margin: 0 auto 15px; /* Centers the image and adds space below */
+    border: 3px solid var(--color-cta); /* Accent color border around the image */
+    flex-shrink: 0; /* Prevents the image from shrinking in flex container */
+}
+
+.artist-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the entire circular area */
+}
+
+.artist-thumb-name {
+    font-family: var(--font-serif);
+    font-size: 22px;
+    color: var(--color-text-accent);
+    margin-bottom: 10px;
+}
+
+.artist-thumb-desc {
+    font-size: 15px;
+    color: #CCC;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows the description to take up available vertical space */
+}
+
+.view-details-link {
+    display: inline-block;
+    background-color: #5A443A; /* A darker brown for a subtle button */
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: auto; /* Pushes the button to the bottom of the card if space allows */
+}
+
+.view-details-link:hover {
+    background-color: #7A4930; /* Slightly lighter brown on hover */
+    color: var(--color-text-accent);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .artist-hero-content {
+        flex-direction: column; /* Stacks text and image vertically */
+        align-items: center; /* Centers items horizontally */
+        text-align: center;
+    }
+
+    .artist-bio-text {
+        padding-right: 0; /* Remove right padding */
+        text-align: center;
+    }
+
+    .artist-name {
+        font-size: 48px; /* Adjust font size for smaller screens */
+    }
+
+    .artist-image-circle {
+        margin-bottom: 30px; /* Space between image and text when stacked */
+    }
+    .connect-links {
+        justify-content: center; /* Center social links */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .connect-links a {
+        margin-left: 0; /* Remove left margin on icons for better centering */
+    }
+}
+
+@media (max-width: 600px) {
+    .artist-name {
+        font-size: 40px;
+    }
+    .artist-tagline {
+        font-size: 18px;
+    }
+    .artist-bio-text p {
+        font-size: 15px;
+    }
+    .artist-image-circle {
+        width: 250px; /* Smaller image on very small screens */
+        height: 250px;
+    }
+    /* Adjust padding for sections on small screens */
+    .recommended-instruments, .artist-grid-section {
+        padding: 0 20px 40px; 
+    }
+    .artist-hero {
+        padding: 40px 20px;
+    }
+    .individual-artist-card {
+        padding: 15px; /* Smaller padding inside cards */
+    }
+    .artist-thumb-name {
+        font-size: 20px;
+    }
+}

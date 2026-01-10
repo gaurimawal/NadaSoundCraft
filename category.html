@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tata Vadya | String Instruments - Nada Soundcraft</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="listing.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
+    <!-- HCI: Consistency (Standard Header) -->
     <header class="global-header">
         <div class="header-content">
-            <div class="logo">Nada Soundcraft</div>
+            <div class="logo"><a href="index.html">Nada Soundcraft</a></div>
             
             <nav class="main-nav">
                 <a href="category.html" class="nav-link">Tata Vadya</a>
@@ -26,8 +28,8 @@
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Search...">
                 </div>
-                <a href="profile.html" class="icon-link"><i class="fas fa-user"></i></a>
-                <a href="cart.html" class="icon-link cart-link"> 
+                <a href="profile.html" class="icon-link" aria-label="User Profile"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="icon-link cart-link" aria-label="Shopping Cart"> 
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count">0</span>
                 </a>
@@ -36,19 +38,41 @@
     </header>
 
     <main class="category-page-layout">
-        <h1 class="category-heading">Tata Vadya: String Instruments</h1>
+        <h1 class="page-title">Tata Vadya: String Instruments</h1>
 
+        <!-- HCI: User Control (Sorting, Filtering) -->
         <div class="main-content-wrapper">
             
             <aside class="filter-sidebar">
-                <h2>Filter</h2>
+                <h2>Refine Your Selection</h2>
+                
+                <div class="filter-group">
+                    <div class="filter-title">Price Range</div>
+                    <p style="font-size: 14px; color: #CCC; margin-bottom: 15px;">₹5,000 to ₹1,00,000</p>
+                    <!-- In a real app, this would be a slider -->
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-title">Brand</div>
+                    <label class="filter-option"><input type="checkbox"> Rikhi Ram (15)</label>
+                    <label class="filter-option"><input type="checkbox"> Palta (10)</label>
+                    <label class="filter-option"><input type="checkbox"> SoundSecure (5)</label>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-title">Instrument Type</div>
+                    <label class="filter-option"><input type="checkbox" checked> Sitar (40)</label>
+                    <label class="filter-option"><input type="checkbox"> Sarod (20)</label>
+                    <label class="filter-option"><input type="checkbox"> Tanpura (15)</label>
+                </div>
+
                 <button class="apply-filters-btn">APPLY FILTERS</button>
             </aside>
 
             <section class="product-listing-area">
                 <div class="sort-bar">
                     <p>Showing 1–12 of 85 products</p>
-                    <select>
+                    <select aria-label="Sort products by">
                         <option>Sort By: Popularity</option>
                         <option>Sort By: Price Low to High</option>
                         <option>Sort By: Newest</option>
@@ -56,31 +80,79 @@
                 </div>
 
                 <div class="product-grid">
+                    <!-- HCI: Predictability (Clear, consistent card structure) -->
                     <a href="product.html" class="product-card">
-                        <img src="images/hero_sitar.jpg" alt ="Master Sitar Pro" class="product-image-thumb">
+                        <img src="images/mastersitardetail.jpeg" alt ="Master Sitar Pro" class="product-image-thumb">
                         <h4 class="product-name">Master Sitar Pro</h4>
                         <p class="product-brand">Rikhi Ram</p>
                         <div class="product-rating">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (45)
                         </div>
                         <p class="product-price">₹45,000</p>
-                        </a>
+                        <span class="card-cta-btn">View Product</span>
+                    </a>
                     
-                    </div>
+                    <a href="product.html" class="product-card">
+                        <img src="images/sarod.jpeg" alt ="Signature Sarod" class="product-image-thumb">
+                        <h4 class="product-name">Signature Sarod</h4>
+                        <p class="product-brand">Palta</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (22)
+                        </div>
+                        <p class="product-price">₹62,000</p>
+                        <span class="card-cta-btn">View Product</span>
+                    </a>
 
+                    <a href="product.html" class="product-card">
+                        <img src="images/Tanpura.jpeg" alt ="Concert Tanpura" class="product-image-thumb">
+                        <h4 class="product-name">Concert Tanpura</h4>
+                        <p class="product-brand">Rikhi Ram</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (88)
+                        </div>
+                        <p class="product-price">₹28,500</p>
+                        <span class="card-cta-btn">View Product</span>
+                    </a>
+
+                    <a href="product.html" class="product-card">
+                        <img src="https://placehold.co/300x220/281A1A/FFFFFF?text=Veena" alt ="Classic Rudra Veena" class="product-image-thumb">
+                        <h4 class="product-name">Rudra Veena (Classic)</h4>
+                        <p class="product-brand">Shilpa Instruments</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (12)
+                        </div>
+                        <p class="product-price">₹1,10,000</p>
+                        <span class="card-cta-btn">View Product</span>
+                    </a>
+                    <!-- Additional placeholder cards for a full layout -->
+                    <a href="product.html" class="product-card">
+                        <img src="https://placehold.co/300x220/6F4532/FFFFFF?text=Violin" alt ="Carnatic Violin" class="product-image-thumb">
+                        <h4 class="product-name">Carnatic Violin</h4>
+                        <p class="product-brand">Madras Strings</p>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (60)
+                        </div>
+                        <p class="product-price">₹22,000</p>
+                        <span class="card-cta-btn">View Product</span>
+                    </a>
+                    
+                </div>
+
+                <!-- HCI: Closure (Clear navigation between pages) -->
                 <div class="pagination">
-                    <a href="#">&laquo;</a>
-                    <a href="#" class="active">1</a>
+                    <a href="#" aria-label="Previous Page">&laquo;</a>
+                    <a href="#" class="active" aria-current="page">1</a>
                     <a href="#">2</a>
                     <a href="#">3</a>
-                    <a href="#">&raquo;</a>
+                    <a href="#" aria-label="Next Page">&raquo;</a>
                 </div>
             </section>
         </div>
     </main>
 
+    <!-- HCI: Consistency (Standard Footer) -->
     <footer class="site-footer">
-        <p>&copy; 2025 Nada Soundcraft. All Rights Reserved.</p>
+        <p>&copy; 2025 Nada Soundcraft. All Rights Reserved. | <a href="#" style="color:var(--color-text-accent);">Privacy Policy</a></p>
     </footer>
 </body>
 </html>

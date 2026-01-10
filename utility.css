@@ -1,0 +1,384 @@
+/* Global styles are defined in global.css */
+
+/* --- CART PAGE LAYOUT (HCI: Closure, Error Handling, Reversal) --- */
+.cart-page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 70vh;
+}
+
+.cart-flex-container {
+    display: flex;
+    gap: 40px;
+}
+
+.cart-items {
+    flex: 2; 
+}
+
+.order-summary-box {
+    flex: 1; 
+    background-color: var(--color-accent-bg); /* Use accent color for summary box */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    height: fit-content;
+}
+
+/* --- CART ITEMS STYLES --- */
+.cart-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-primary-bg);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+}
+
+.item-image-box {
+    width: 120px; /* Larger image for clarity */
+    height: 120px;
+    overflow: hidden;
+    border-radius: 6px;
+    margin-right: 25px;
+    flex-shrink: 0;
+    background-color: #3A2C2C;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-details {
+    flex-grow: 1; 
+    padding-right: 20px;
+}
+
+.item-name {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: var(--color-text-accent);
+    margin-bottom: 5px;
+}
+
+.item-availability {
+    font-size: 14px;
+    color: var(--color-success); 
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    flex-shrink: 0;
+}
+
+.qty-btn-cart {
+    background-color: #444;
+    color: var(--color-text-light);
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.qty-btn-cart:hover {
+    background-color: #666;
+}
+
+.qty-input-cart {
+    width: 45px;
+    text-align: center;
+    border: 1px solid #555;
+    background-color: #333;
+    color: var(--color-text-light);
+    font-size: 16px;
+    padding: 8px 0;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+.item-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text-light);
+    width: 140px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.item-remove-btn {
+    background: none;
+    border: none;
+    color: var(--color-error); 
+    font-size: 22px;
+    margin-left: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* --- ORDER SUMMARY STYLES --- */
+.summary-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    color: var(--color-text-light);
+    margin-bottom: 25px;
+    border-bottom: 2px solid #7A4930;
+    padding-bottom: 15px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #CCC;
+}
+.summary-line:last-of-type {
+    margin-bottom: 25px;
+}
+
+.summary-total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 3px solid var(--color-cta); 
+    font-size: 28px;
+    color: var(--color-text-accent);
+}
+
+/* ------------------------------------------------ */
+/* --- LOGIN/PROFILE STYLES (Refactored for Aesthetics) --- */
+/* ------------------------------------------------ */
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Use calc for full screen height minus header and footer space */
+    min-height: calc(100vh - var(--header-height) - 60px); 
+    padding: 20px;
+}
+
+.login-container {
+    /* Updated background and border for a richer look */
+    background-color: var(--color-accent-bg); /* Rich Earthy Brown */
+    border: 1px solid var(--color-secondary-cta);
+    padding: 50px; /* Increased padding */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7); /* Deeper shadow */
+    width: 100%;
+    max-width: 450px; 
+}
+
+.login-title {
+    font-family: var(--font-serif);
+    font-size: 38px; /* Slightly larger title */
+    color: var(--color-text-accent); /* Use gold accent color for the main title */
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+.login-form label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-light); /* Ensure labels are light */
+}
+
+.login-form input {
+    /* Contrast with the container background */
+    background-color: var(--color-primary-bg); /* Darker input background */
+    border: 1px solid #4A3C3C; 
+    padding: 14px; /* Taller inputs */
+    border-radius: 8px;
+}
+.login-form input:focus {
+    border-color: var(--color-cta);
+    box-shadow: 0 0 0 2px rgba(232, 124, 62, 0.4); /* Subtle glow on focus */
+}
+
+.form-options {
+    margin-bottom: 25px;
+}
+
+.social-login-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    color: #CCC;
+}
+.social-login-separator::before,
+.social-login-separator::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background-color: #7A4930; /* Use a warm line color */
+}
+.social-login-separator span {
+    padding: 0 15px;
+    font-size: 14px;
+}
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* Enhanced social button hover effects */
+.social-btn {
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+.social-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.google-btn {
+    background-color: #4285F4;
+    color: white;
+}
+.google-btn:hover {
+    background-color: #357ae8;
+}
+.facebook-btn {
+    background-color: #1877F2;
+    color: white;
+}
+.facebook-btn:hover {
+    background-color: #1562c5;
+}
+
+.password-input-group {
+    position: relative;
+}
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 55%; /* Adjusted top position */
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* --- ARTIST PAGE LAYOUT --- */
+.artist-page-layout {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.artist-hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 40px 0;
+    margin-bottom: 80px;
+}
+
+.artist-title {
+    font-family: var(--font-serif);
+    font-size: 60px;
+    color: var(--color-text-accent);
+    line-height: 1.1;
+}
+
+.artist-subtitle {
+    font-size: 22px;
+    color: var(--color-text-light);
+}
+
+.artist-image-placeholder {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 50%; /* Make the artist image circular for better presentation */
+    width: 350px;
+    height: 350px;
+    min-width: 350px;
+    box-shadow: 0 0 0 10px rgba(255, 183, 106, 0.2), 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.artist-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Mobile responsiveness for Utility Pages */
+@media (max-width: 768px) {
+    .cart-flex-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .order-summary-box {
+        order: -1; /* Move summary to the top on mobile for quick view */
+    }
+    .cart-item {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .item-image-box {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    .item-details {
+        text-align: left;
+        flex-basis: 100%;
+    }
+    .item-quantity, .item-price, .item-remove-btn {
+        margin: 10px 0;
+        width: 33%;
+        text-align: center;
+    }
+    .item-price {
+        font-size: 20px;
+    }
+    .artist-hero-section {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .artist-image-placeholder {
+        width: 250px;
+        height: 250px;
+        min-width: 250px;
+        margin: 0 auto;
+    }
+    .artist-title {
+        font-size: 40px;
+    }
+    .login-container {
+        padding: 30px;
+    }
+}
+/* --- NEW: BACKGROUND IMAGE FOR HOMEPAGE BODY --- */
+.body-home-bg {
+    /* Path to your chosen home background image */
+    background-image: url('images/back.jpeg'); 
+    background-size: cover;
+    background-position: center top; 
+    background-attachment: fixed; /* Ensures the background stays put while scrolling */
+    background-repeat: no-repeat;
+}
+
+/* Ensure ALL main containers remain solid to keep text readable */
+.global-header, 
+.category-strip,
+.site-footer {
+    /* Critical: Makes sure the color is solid and the background image doesn't show through */
+    background-color: var(--color-primary-bg); 
+    position: relative; /* Necessary if background-attachment: fixed is used */
+    z-index: 1; /* Puts content layers clearly above the body background */
+}
